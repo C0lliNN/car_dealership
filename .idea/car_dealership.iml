@@ -95,6 +95,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.3.20" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.3.0" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.5.0" level="project" />
+    <orderEntry type="library" name="Maven: org.flywaydb:flyway-core:8.5.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-test:2.5.14" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-test:2.5.14" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.5.14" level="project" />
