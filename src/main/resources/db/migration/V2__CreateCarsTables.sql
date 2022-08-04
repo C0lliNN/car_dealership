@@ -7,7 +7,8 @@ CREATE TABLE photos (
 CREATE TABLE acquisitions (
     carId VARCHAR(36) NOT NULL,
     date DATE NOT NULL,
-    source VARCHAR(50) NOT NULL
+    source VARCHAR(50) NOT NULL,
+    price INTEGER NOT NULL
 );
 
 CREATE TABLE cars (

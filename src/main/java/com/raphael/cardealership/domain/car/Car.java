@@ -8,9 +8,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -28,15 +31,19 @@ public class Car {
     private String name;
     private String brand;
     private String color;
+    @Enumerated(EnumType.STRING)
     private CarStatus status;
+    @Enumerated(EnumType.STRING)
+
     private CarType type;
     private String chassis;
     private int mileage;
     private int releaseYear;
 
-    @OneToOne
+    @OneToOne(mappedBy = "car")
+    @PrimaryKeyJoinColumn
     private Acquisition acquisition;
-    @OneToMany
+    @OneToMany(mappedBy = "car")
     @ToString.Exclude
     private List<Photo> photos;
 

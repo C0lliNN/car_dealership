@@ -8,7 +8,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
@@ -26,6 +29,7 @@ public class Seller {
     private String id;
     private String name;
     private String email;
+    @Enumerated(EnumType.STRING)
     private SellerStatus status;
     private LocalDate joinDate;
 

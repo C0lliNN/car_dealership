@@ -11,7 +11,10 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -32,13 +35,18 @@ public class Sale {
     private LocalDate date;
     private int value;
 
-    @OneToOne
+    @ManyToOne
+    @JoinTable(name = "customers")
+    @JoinColumn(name = "saleId", updatable = false, insertable = false)
     private Customer customer;
 
-    @ManyToOne
+    @JoinTable(name = "sellers")
+    @JoinColumn(name = "sellers.id", updatable = false, insertable = false)
     private Seller seller;
 
     @ManyToOne
+    @JoinTable(name = "cars")
+    @JoinColumn(name = "cars.id", insertable = false, updatable = false)
     private Car car;
 
     public int calculateProfit() {
