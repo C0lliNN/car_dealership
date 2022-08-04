@@ -1,6 +1,6 @@
-package com.raphael.cardealership.car;
+package com.raphael.cardealership.domain.car;
 
-import com.raphael.cardealership.shared.EntityValidationException;
+import com.raphael.cardealership.domain.shared.EntityValidationException;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

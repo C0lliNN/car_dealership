@@ -1,8 +1,8 @@
-package com.raphael.cardealership.seller;
+package com.raphael.cardealership.domain.car;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SellerRepository extends JpaRepository<Seller, String> {
+public interface CarRepository extends JpaRepository<Car, String> {
 }

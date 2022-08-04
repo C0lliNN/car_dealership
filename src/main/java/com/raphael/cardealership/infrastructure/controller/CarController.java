@@ -1,7 +1,7 @@
-package com.raphael.cardealership.controller;
+package com.raphael.cardealership.infrastructure.controller;
 
-import com.raphael.cardealership.car.Car;
-import com.raphael.cardealership.car.CarService;
+import com.raphael.cardealership.domain.car.Car;
+import com.raphael.cardealership.domain.car.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

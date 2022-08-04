@@ -1,9 +1,9 @@
-package com.raphael.cardealership.sale;
+package com.raphael.cardealership.domain.sale;
 
-import com.raphael.cardealership.car.Car;
-import com.raphael.cardealership.seller.Seller;
-import com.raphael.cardealership.shared.EntityValidationException;
-import com.raphael.cardealership.shared.RegexPattern;
+import com.raphael.cardealership.domain.car.Car;
+import com.raphael.cardealership.domain.seller.Seller;
+import com.raphael.cardealership.domain.shared.EntityValidationException;
+import com.raphael.cardealership.domain.shared.RegexPattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

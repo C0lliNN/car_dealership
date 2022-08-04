@@ -1,13 +1,14 @@
 package com.raphael.cardealership.seller;
 
-import com.raphael.cardealership.shared.EntityNotFoundException;
-import org.apache.tomcat.jni.Local;
-import org.checkerframework.checker.nullness.Opt;
+import com.raphael.cardealership.domain.seller.Seller;
+import com.raphael.cardealership.domain.seller.SellerRepository;
+import com.raphael.cardealership.domain.seller.SellerService;
+import com.raphael.cardealership.domain.seller.SellerStatus;
+import com.raphael.cardealership.domain.shared.EntityNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;

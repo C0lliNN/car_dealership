@@ -1,4 +1,4 @@
-package com.raphael.cardealership.car;
+package com.raphael.cardealership.domain.car;
 
 public enum CarStatus {
     ACTIVE,

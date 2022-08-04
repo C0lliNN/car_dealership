@@ -1,4 +1,4 @@
-package com.raphael.cardealership.sale;
+package com.raphael.cardealership.domain.sale;
 
 import lombok.Value;
 

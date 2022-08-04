@@ -1,4 +1,4 @@
-package com.raphael.cardealership.shared;
+package com.raphael.cardealership.domain.shared;
 
 public class EntityNotFoundException extends RuntimeException{
     private static final long serialVersionUID = 1L;

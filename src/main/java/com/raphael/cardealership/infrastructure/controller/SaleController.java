@@ -1,8 +1,8 @@
-package com.raphael.cardealership.controller;
+package com.raphael.cardealership.infrastructure.controller;
 
-import com.raphael.cardealership.sale.Sale;
-import com.raphael.cardealership.sale.SaleRegistration;
-import com.raphael.cardealership.sale.SaleService;
+import com.raphael.cardealership.domain.sale.Sale;
+import com.raphael.cardealership.domain.sale.SaleRegistration;
+import com.raphael.cardealership.domain.sale.SaleService;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

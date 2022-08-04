@@ -1,6 +1,8 @@
 package com.raphael.cardealership.seller;
 
-import com.raphael.cardealership.shared.EntityValidationException;
+import com.raphael.cardealership.domain.seller.Seller;
+import com.raphael.cardealership.domain.seller.SellerStatus;
+import com.raphael.cardealership.domain.shared.EntityValidationException;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

@@ -1,6 +1,6 @@
-package com.raphael.cardealership.seller;
+package com.raphael.cardealership.domain.seller;
 
-import com.raphael.cardealership.shared.EntityNotFoundException;
+import com.raphael.cardealership.domain.shared.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

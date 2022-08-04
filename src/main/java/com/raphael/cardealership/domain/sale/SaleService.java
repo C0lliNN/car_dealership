@@ -1,10 +1,10 @@
-package com.raphael.cardealership.sale;
+package com.raphael.cardealership.domain.sale;
 
-import com.raphael.cardealership.car.Car;
-import com.raphael.cardealership.car.CarRepository;
-import com.raphael.cardealership.seller.Seller;
-import com.raphael.cardealership.seller.SellerRepository;
-import com.raphael.cardealership.shared.EntityNotFoundException;
+import com.raphael.cardealership.domain.car.Car;
+import com.raphael.cardealership.domain.car.CarRepository;
+import com.raphael.cardealership.domain.seller.Seller;
+import com.raphael.cardealership.domain.seller.SellerRepository;
+import com.raphael.cardealership.domain.shared.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,4 +1,4 @@
-package com.raphael.cardealership.car;
+package com.raphael.cardealership.domain.car;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

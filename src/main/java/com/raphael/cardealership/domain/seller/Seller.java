@@ -1,13 +1,12 @@
-package com.raphael.cardealership.seller;
+package com.raphael.cardealership.domain.seller;
 
-import com.raphael.cardealership.shared.EntityValidationException;
-import com.raphael.cardealership.shared.RegexPattern;
+import com.raphael.cardealership.domain.shared.EntityValidationException;
+import com.raphael.cardealership.domain.shared.RegexPattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.apache.tomcat.jni.Local;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
