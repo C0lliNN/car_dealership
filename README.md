@@ -13,4 +13,8 @@ A simple Car Dealership application created in Spring Boot for my "Web Proggrami
 ```shell
 docker-compose up -d
 ```
-2. Open the Project in your favorite IDE with Maven support and execute the class `CarDealershipApplication.java`
+2. Insert seed data running
+```shell
+make seed_data
+```
+3. Open the Project in your favorite IDE with Maven support and execute the class `CarDealershipApplication.java`
