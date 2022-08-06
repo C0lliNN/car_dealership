@@ -21,3 +21,7 @@ VALUES
 INSERT INTO car_dealership.sales
 VALUES
 ('sale-1', '2022-08-03', 85000, 'seller-1', 'car-2');
+
+INSERT INTO car_dealership.customers
+VALUES
+('sale-1', 'Hiago', 'hiago@test.com', '22835353535');

@@ -70,6 +70,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>9.1.2</version>
+                <configuration>
+                    <user>postgres</user>
+                    <password>postgres</password>
+                    <defaultSchema>car_dealership</defaultSchema>
+                    <url>jdbc:postgresql://localhost:5432/car_dealership</url>
+                    <cleanDisabled>false</cleanDisabled>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
