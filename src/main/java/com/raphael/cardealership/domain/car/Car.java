@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -31,19 +32,22 @@ public class Car {
     private String name;
     private String brand;
     private String color;
+
     @Enumerated(EnumType.STRING)
     private CarStatus status;
-    @Enumerated(EnumType.STRING)
 
+    @Enumerated(EnumType.STRING)
     private CarType type;
     private String chassis;
     private int mileage;
     private int releaseYear;
 
-    @OneToOne(mappedBy = "car")
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @PrimaryKeyJoinColumn(name = "carId", referencedColumnName = "id")
     private Acquisition acquisition;
-    @OneToMany(mappedBy = "car")
+
+    @OneToMany
+    @JoinColumn(name = "carId", referencedColumnName = "id")
     @ToString.Exclude
     private List<Photo> photos;
 

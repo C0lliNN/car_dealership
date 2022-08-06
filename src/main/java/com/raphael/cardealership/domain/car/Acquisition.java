@@ -36,10 +36,4 @@ public class Acquisition {
 
     @Enumerated(EnumType.STRING)
     private AcquisitionSource source;
-
-    @OneToOne
-    @JsonIgnore
-    @MapsId
-    @JoinColumn(name = "carId")
-    private Car car;
 }

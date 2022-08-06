@@ -1,5 +1,6 @@
 package com.raphael.cardealership.domain.sale;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "customers")
 public class Customer {
+    @JsonIgnore
     @Id
     private String saleId;
 

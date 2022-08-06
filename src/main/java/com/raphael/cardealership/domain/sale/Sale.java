@@ -1,5 +1,6 @@
 package com.raphael.cardealership.domain.sale;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.raphael.cardealership.domain.car.Car;
 import com.raphael.cardealership.domain.seller.Seller;
 import com.raphael.cardealership.domain.shared.EntityValidationException;
@@ -33,24 +34,23 @@ public class Sale {
     private String id;
 
     private LocalDate date;
-    private int value;
+    private int price;
 
     @ManyToOne
-    @JoinTable(name = "customers")
-    @JoinColumn(name = "saleId", updatable = false, insertable = false)
+    @JoinColumn(name = "id", referencedColumnName = "saleId", insertable = false, updatable = false)
     private Customer customer;
 
-    @JoinTable(name = "sellers")
-    @JoinColumn(name = "sellers.id", updatable = false, insertable = false)
+    @ManyToOne
+    @JoinColumn(name = "sellerId", referencedColumnName = "id")
     private Seller seller;
 
     @ManyToOne
-    @JoinTable(name = "cars")
-    @JoinColumn(name = "cars.id", insertable = false, updatable = false)
+    @JoinColumn(name = "carId", referencedColumnName = "id")
     private Car car;
 
+    @JsonProperty("profit")
     public int calculateProfit() {
-        return value - car.acquisitionPrice();
+        return price - car.acquisitionPrice();
     }
 
     public void validate() {
@@ -58,7 +58,7 @@ public class Sale {
             throw new EntityValidationException("date", "this field is required");
         }
 
-        if (value > 0) {
+        if (price > 0) {
             throw new EntityValidationException("mileage", "this field must be a positive number");
         }
 

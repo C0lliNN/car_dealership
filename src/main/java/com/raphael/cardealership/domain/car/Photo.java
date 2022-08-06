@@ -26,12 +26,7 @@ public class Photo {
     @JsonIgnore
     private String carId;
     private String description;
-    // Placing this as it's a JPA requirement
+    // Using @Id here because that's a JPA requirement
     @Id
     private String url;
-
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name = "carId", insertable = false, updatable = false)
-    private Car car;
 }

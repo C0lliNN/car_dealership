@@ -27,10 +27,13 @@ import java.util.regex.Pattern;
 public class Seller {
     @Id
     private String id;
+
     private String name;
     private String email;
+
     @Enumerated(EnumType.STRING)
     private SellerStatus status;
+
     private LocalDate joinDate;
 
     public boolean isActive() {
