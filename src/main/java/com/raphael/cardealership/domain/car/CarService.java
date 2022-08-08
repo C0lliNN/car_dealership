@@ -10,23 +10,32 @@ import java.util.UUID;
 @Service
 @AllArgsConstructor
 public class CarService {
-    private final CarRepository repository;
+    private final CarRepository carRepository;
+    private final AcquisitionRepository acquisitionRepository;
 
     public List<Car> getCars() {
-        return repository.findAll();
+        return carRepository.findAll();
     }
 
     public Car getCar(String id) {
-        return repository.findById(id)
+        return carRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("The car with the id '%s' was not found", id));
     }
 
     public Car createCar(Car car) {
-        car.setId(UUID.randomUUID().toString());
+        String carId = UUID.randomUUID().toString();
+        car.setId(carId);
         car.setStatus(CarStatus.ACTIVE);
 
-        repository.save(car);
-        return car;
+        car.validate();
+
+        car.getAcquisition().setCarId(carId);
+        acquisitionRepository.save(car.getAcquisition());
+
+        car.setAcquisition(null);
+        car.setPhotos(null);
+
+        return carRepository.save(car);
     }
 
     public void updateCar(String id, Car newCar) {
@@ -45,6 +54,6 @@ public class CarService {
 
         existingCar.validate();
 
-        repository.save(existingCar);
+        carRepository.save(existingCar);
     }
 }
