@@ -3,6 +3,7 @@ package com.raphael.cardealership.infrastructure.controller;
 import com.raphael.cardealership.domain.seller.Seller;
 import com.raphael.cardealership.domain.seller.SellerService;
 import lombok.AllArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,12 +29,12 @@ public class SellerController {
     }
 
     @PostMapping("/sellers")
-    public Seller createSeller(@RequestBody Seller seller) {
+    public Seller createSeller(@RequestBody @Validated Seller seller) {
         return sellerService.createSeller(seller);
     }
 
     @PutMapping("/sellers/{id}")
-    public void updateSeller(@PathVariable("id") String sellerId, @RequestBody Seller seller) {
+    public void updateSeller(@PathVariable("id") String sellerId, @RequestBody @Validated Seller seller) {
         sellerService.updateSeller(sellerId, seller);
     }
 }

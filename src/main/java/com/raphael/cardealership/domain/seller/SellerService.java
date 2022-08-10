@@ -25,8 +25,6 @@ public class SellerService {
         seller.setId(UUID.randomUUID().toString());
         seller.setStatus(SellerStatus.ACTIVE);
 
-        seller.validate();
-
         repository.save(seller);
         return seller;
     }
@@ -38,8 +36,6 @@ public class SellerService {
         existingSeller.setEmail(seller.getEmail());
         existingSeller.setStatus(seller.getStatus());
         existingSeller.setJoinDate(seller.getJoinDate());
-
-        existingSeller.validate();
 
         repository.save(existingSeller);
     }
