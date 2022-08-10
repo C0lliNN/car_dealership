@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 @Value
 public class SaleRegistration {
     @NotBlank(message = "the field is mandatory")
-    String cardId;
+    String carId;
 
     @NotBlank(message = "the field is mandatory")
     String sellerId;

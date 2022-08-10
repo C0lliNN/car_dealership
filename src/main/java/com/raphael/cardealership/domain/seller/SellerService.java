@@ -41,6 +41,6 @@ public class SellerService {
 
         existingSeller.validate();
 
-        repository.save(seller);
+        repository.save(existingSeller);
     }
 }

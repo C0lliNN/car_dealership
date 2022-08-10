@@ -19,11 +19,12 @@ public class SaleService {
     private final SaleRepository saleRepository;
     private final SellerRepository sellerRepository;
     private final CarRepository carRepository;
+    private final CustomerRepository customerRepository;
 
     @Transactional
     public Sale registerNewSale(SaleRegistration saleRegistration) {
-        Car car = carRepository.findById(saleRegistration.getCardId())
-                .orElseThrow(() -> new EntityNotFoundException("Car the id '%s' was not found", saleRegistration.getCardId()));
+        Car car = carRepository.findById(saleRegistration.getCarId())
+                .orElseThrow(() -> new EntityNotFoundException("Car the id '%s' was not found", saleRegistration.getCarId()));
 
         Seller seller = sellerRepository.findById(saleRegistration.getSellerId())
                 .orElseThrow(() -> new EntityNotFoundException("Seller with id '%s' was not found.", saleRegistration.getSellerId()));
@@ -43,6 +44,7 @@ public class SaleService {
 
         sale.validate();
 
+        customerRepository.save(customer);
         saleRepository.save(sale);
 
         return sale;
