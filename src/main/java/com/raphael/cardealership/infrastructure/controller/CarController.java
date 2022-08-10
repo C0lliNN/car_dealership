@@ -33,7 +33,7 @@ public class CarController {
     }
 
     @PutMapping("/cars/{id}")
-    public void updateCar(@PathVariable("id") String carId, Car car) {
+    public void updateCar(@PathVariable("id") String carId, @RequestBody Car car) {
         carService.updateCar(carId, car);
     }
 }
