@@ -17,6 +17,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.List;
 
 @Getter
@@ -30,23 +33,36 @@ public class Car {
     @Id
     private String id;
 
+    @NotBlank(message = "this field is mandatory")
     private String name;
+
+    @NotBlank(message = "this field is mandatory")
     private String brand;
+
+    @NotBlank(message = "this field is mandatory")
     private String color;
 
+    @NotNull(message = "this field is mandatory")
     @Enumerated(EnumType.STRING)
     private CarStatus status;
 
+    @NotNull(message = "this field is mandatory")
     @Enumerated(EnumType.STRING)
     private CarType type;
+
+    @NotBlank(message = "this field is mandatory")
     private String chassis;
+
+    @Positive(message = "the field must be positive")
     private int mileage;
     private int releaseYear;
 
+    @NotNull(message = "this field is mandatory")
     @OneToOne
     @PrimaryKeyJoinColumn(name = "carId", referencedColumnName = "id")
     private Acquisition acquisition;
 
+    @NotNull(message = "this field is mandatory")
     @OneToMany
     @JoinColumn(name = "carId", referencedColumnName = "id")
     @ToString.Exclude
@@ -54,60 +70,6 @@ public class Car {
 
     public boolean isSold() {
         return status == CarStatus.SOLD;
-    }
-
-    public void validate() {
-        if (name == null || name.trim().isEmpty()) {
-            throw new EntityValidationException("name", "this field is required");
-        }
-
-        if (brand == null || brand.trim().isEmpty()) {
-            throw new EntityValidationException("brand", "this field is required");
-        }
-
-        if (color == null || color.trim().isEmpty()) {
-            throw new EntityValidationException("color", "this field is required");
-        }
-
-        if (status == null) {
-            throw new EntityValidationException("status", "this field is required");
-        }
-
-        if (chassis == null || chassis.trim().isEmpty()) {
-            throw new EntityValidationException("chassis", "this field is required");
-        }
-
-        if (mileage < 0) {
-            throw new EntityValidationException("mileage", "this field must be a positive number");
-        }
-
-        if (releaseYear < 1950 || releaseYear > 2300) {
-            throw new EntityValidationException("mileage", "this field value must be between 1950 and 2300");
-        }
-
-        if (acquisition == null) {
-            throw new EntityValidationException("acquisition", "this field is required");
-        }
-
-        if (acquisition.getSource() == null) {
-            throw new EntityValidationException("acquisition.source", "this field is required");
-        }
-
-        if (acquisition.getDate() == null) {
-            throw new EntityValidationException("acquisition.date", "this field is required");
-        }
-
-        if (acquisition.getPrice() < 0) {
-            throw new EntityValidationException("acquisition.price", "this field must be a positive number");
-        }
-
-        if (photos != null && !photos.isEmpty()) {
-            photos.forEach(photo -> {
-                if (photo.getUrl() == null  || photo.getUrl().trim().isEmpty()) {
-                    throw new EntityValidationException("photos.url", "this field is required");
-                }
-            });
-        }
     }
 
     public int acquisitionPrice() {

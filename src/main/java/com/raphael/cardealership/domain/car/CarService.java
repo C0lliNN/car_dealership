@@ -28,7 +28,6 @@ public class CarService {
     public Car createCar(Car car) {
         car.setId(UUID.randomUUID().toString());
         car.setStatus(CarStatus.ACTIVE);
-        car.validate();
 
         saveAcquisition(car);
         savePhotos(car);
@@ -39,13 +38,11 @@ public class CarService {
     private void saveAcquisition(Car car) {
         car.getAcquisition().setCarId(car.getId());
         acquisitionRepository.save(car.getAcquisition());
-        car.setAcquisition(null);
     }
 
     private void savePhotos(Car car) {
         car.getPhotos().forEach(p -> p.setCarId(car.getId()));
         photoRepository.saveAll(car.getPhotos());
-        car.setPhotos(null);
     }
 
     @Transactional
@@ -60,8 +57,6 @@ public class CarService {
         existingCar.setChassis(newCar.getChassis());
         existingCar.setMileage(newCar.getMileage());
         existingCar.setReleaseYear(newCar.getReleaseYear());
-
-        existingCar.validate();
 
         updateAcquisition(existingCar, newCar);
         updatePhotos(existingCar, newCar);
