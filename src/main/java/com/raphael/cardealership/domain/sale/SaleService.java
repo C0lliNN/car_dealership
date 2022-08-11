@@ -31,7 +31,6 @@ public class SaleService {
 
         Sale sale = new Sale();
         sale.setId(UUID.randomUUID().toString());
-        sale.setDate(LocalDate.now());
         Customer customer = new Customer(
                 sale.getId(),
                 saleRegistration.getCustomerName(),
@@ -41,8 +40,8 @@ public class SaleService {
         sale.setCustomer(customer);
         sale.setSeller(seller);
         sale.setCar(car);
-
-        sale.validate();
+        sale.setPrice(saleRegistration.getPrice());
+        sale.setDate(saleRegistration.getDate());
 
         customerRepository.save(customer);
         saleRepository.save(sale);
