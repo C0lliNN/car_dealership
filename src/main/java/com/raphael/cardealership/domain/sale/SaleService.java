@@ -19,7 +19,6 @@ public class SaleService {
     private final SaleRepository saleRepository;
     private final SellerRepository sellerRepository;
     private final CarRepository carRepository;
-    private final CustomerRepository customerRepository;
 
     @Transactional
     public Sale registerNewSale(SaleRegistration saleRegistration) {
@@ -43,7 +42,6 @@ public class SaleService {
         sale.setPrice(saleRegistration.getPrice());
         sale.setDate(saleRegistration.getDate());
 
-        customerRepository.save(customer);
         saleRepository.save(sale);
 
         return sale;

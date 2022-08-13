@@ -11,13 +11,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
@@ -36,8 +39,8 @@ public class Sale {
     private LocalDate date;
     private int price;
 
-    @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "saleId", insertable = false, updatable = false)
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name = "id", referencedColumnName = "saleId")
     private Customer customer;
 
     @ManyToOne
