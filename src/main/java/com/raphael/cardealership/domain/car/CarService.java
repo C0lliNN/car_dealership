@@ -12,8 +12,6 @@ import java.util.UUID;
 @AllArgsConstructor
 public class CarService {
     private final CarRepository carRepository;
-    private final AcquisitionRepository acquisitionRepository;
-    private final PhotoRepository photoRepository;
 
     public List<Car> getCars() {
         return carRepository.findAll();
@@ -26,23 +24,14 @@ public class CarService {
 
     @Transactional
     public Car createCar(Car car) {
-        car.setId(UUID.randomUUID().toString());
+        String carId = UUID.randomUUID().toString();
+        car.setId(carId);
         car.setStatus(CarStatus.ACTIVE);
 
-        saveAcquisition(car);
-        savePhotos(car);
+        car.getPhotos().forEach(p -> p.setCarId(carId));
+        car.getAcquisition().setCarId(carId);
 
         return carRepository.save(car);
-    }
-
-    private void saveAcquisition(Car car) {
-        car.getAcquisition().setCarId(car.getId());
-        acquisitionRepository.save(car.getAcquisition());
-    }
-
-    private void savePhotos(Car car) {
-        car.getPhotos().forEach(p -> p.setCarId(car.getId()));
-        photoRepository.saveAll(car.getPhotos());
     }
 
     @Transactional
@@ -58,23 +47,13 @@ public class CarService {
         existingCar.setMileage(newCar.getMileage());
         existingCar.setReleaseYear(newCar.getReleaseYear());
 
-        updateAcquisition(existingCar, newCar);
-        updatePhotos(existingCar, newCar);
+        newCar.getAcquisition().setCarId(existingCar.getId());
+        existingCar.setAcquisition(newCar.getAcquisition());
+
+        newCar.getPhotos().forEach(p -> p.setCarId(existingCar.getId()));
+        existingCar.getPhotos().clear();
+        existingCar.getPhotos().addAll(newCar.getPhotos());
 
         carRepository.save(existingCar);
-    }
-
-    private void updateAcquisition(Car existing, Car newCar) {
-        newCar.getAcquisition().setCarId(existing.getId());
-        acquisitionRepository.delete(existing.getAcquisition());
-        acquisitionRepository.save(newCar.getAcquisition());
-        existing.setAcquisition(null);
-    }
-
-    private void updatePhotos(Car existing, Car newCar) {
-        newCar.getPhotos().forEach(p -> p.setCarId(existing.getId()));
-        photoRepository.deleteAll(existing.getPhotos());
-        photoRepository.saveAll(newCar.getPhotos());
-        existing.setPhotos(null);
     }
 }

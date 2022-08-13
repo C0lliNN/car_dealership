@@ -1,5 +1,5 @@
 CREATE TABLE photos (
-    carId VARCHAR(36) NOT NULL,
+    carId VARCHAR(36) NULL,
     description TEXT,
     url TEXT
 );

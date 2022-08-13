@@ -1,7 +1,7 @@
 package com.raphael.cardealership.domain.car;
 
-import com.raphael.cardealership.domain.shared.EntityValidationException;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -20,7 +20,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -58,15 +58,15 @@ public class Car {
     private int releaseYear;
 
     @NotNull(message = "this field is mandatory")
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn(name = "carId", referencedColumnName = "id")
     private Acquisition acquisition;
 
     @NotNull(message = "this field is mandatory")
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "carId", referencedColumnName = "id")
     @ToString.Exclude
-    private List<Photo> photos;
+    private Set<Photo> photos;
 
     public boolean isSold() {
         return status == CarStatus.SOLD;

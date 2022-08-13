@@ -29,7 +29,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 @Table(name = "acquisitions")
-@Embeddable
 public class Acquisition {
     @Id
     @JsonIgnore
