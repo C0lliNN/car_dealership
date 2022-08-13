@@ -52,30 +52,4 @@ public class Sale {
     public int calculateProfit() {
         return price - car.acquisitionPrice();
     }
-
-    public void validate() {
-        if (date == null) {
-            throw new EntityValidationException("date", "this field is required");
-        }
-
-        if (price > 0) {
-            throw new EntityValidationException("mileage", "this field must be a positive number");
-        }
-
-        if (customer.getName() == null || customer.getName().trim().isEmpty()) {
-            throw new EntityValidationException("customer.name", "this field is required");
-        }
-
-        if (customer.getEmail() == null || customer.getEmail().trim().isEmpty()) {
-            throw new EntityValidationException("customer.email", "this field is required");
-        }
-
-        if (!Pattern.compile(RegexPattern.EMAIL).matcher(customer.getEmail()).matches()) {
-            throw new EntityValidationException("customer.email", "this email is not valid");
-        }
-
-        if (customer.getPhone() == null || customer.getPhone().trim().isEmpty()) {
-            throw new EntityValidationException("customer.phone", "this field is required");
-        }
-    }
 }

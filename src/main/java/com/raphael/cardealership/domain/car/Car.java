@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -76,7 +77,7 @@ public class Car {
             throw new EntityValidationException("chassis", "this field is required");
         }
 
-        if (mileage > 0) {
+        if (mileage < 0) {
             throw new EntityValidationException("mileage", "this field must be a positive number");
         }
 
@@ -96,7 +97,7 @@ public class Car {
             throw new EntityValidationException("acquisition.date", "this field is required");
         }
 
-        if (acquisition.getPrice() > 0) {
+        if (acquisition.getPrice() < 0) {
             throw new EntityValidationException("acquisition.price", "this field must be a positive number");
         }
 
