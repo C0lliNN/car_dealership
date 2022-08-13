@@ -17,6 +17,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -31,5 +33,6 @@ public class Photo {
     private String description;
     // Using @Id here because that's a JPA requirement
     @Id
+    @NotBlank(message = "this field is mandatory")
     private String url;
 }

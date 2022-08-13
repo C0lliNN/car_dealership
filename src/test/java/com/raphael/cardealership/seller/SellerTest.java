@@ -21,29 +21,4 @@ class SellerTest {
         s.setStatus(SellerStatus.INACTIVE);
         assertFalse(s.isActive());
     }
-
-    @Test
-    void validate() {
-        Seller s = new Seller();
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setName("Raphael Collin");
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setEmail("raphael@test");
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setEmail("raphael@test.com");
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setStatus(SellerStatus.ACTIVE);
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setJoinDate(LocalDate.of(2021, 5, 5));
-
-        assertThrows(EntityValidationException.class, s::validate);
-        s.setJoinDate(LocalDate.of(2022, 5, 5));
-
-        assertDoesNotThrow(s::validate);
-    }
 }
