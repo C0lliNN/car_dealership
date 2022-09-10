@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.token;
+package com.raphael.cardealership.infrastructure.auth;
 
 import com.raphael.cardealership.infrastructure.controller.filter.TokenExtractor;
 import com.raphael.cardealership.domain.auth.User;
