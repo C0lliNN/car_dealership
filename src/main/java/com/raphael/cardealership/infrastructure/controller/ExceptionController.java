@@ -2,6 +2,10 @@ package com.raphael.cardealership.infrastructure.controller;
 
 import com.raphael.cardealership.domain.shared.EntityNotFoundException;
 import com.raphael.cardealership.domain.shared.EntityValidationException;
+import com.raphael.cardealership.infrastructure.auth.exception.DuplicateEmailException;
+import com.raphael.cardealership.infrastructure.auth.exception.EmailNotFoundException;
+import com.raphael.cardealership.infrastructure.auth.exception.IncorrectPasswordException;
+import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +33,43 @@ public class ExceptionController {
 
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
+                .body(ExceptionBody.fromMessage(e.getMessage()));
+    }
+
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public ResponseEntity<ExceptionBody> handleDuplicateEmailException(DuplicateEmailException e) {
+        log.error("An attempt to create a user with existing email was made: {}", e.getMessage(), e);
+
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(ExceptionBody.fromMessage(e.getMessage()));
+    }
+
+    @ExceptionHandler(EmailNotFoundException.class)
+    public ResponseEntity<ExceptionBody> handleEmailNotFoundException(EmailNotFoundException e) {
+        log.error("An attempt to login with a not found email was made: {}", e.getMessage(), e);
+
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(ExceptionBody.fromMessage(e.getMessage()));
+    }
+
+    @ExceptionHandler(IncorrectPasswordException.class)
+    public ResponseEntity<ExceptionBody> handleIncorrectPasswordException(IncorrectPasswordException e) {
+        log.error("An attempt to login with a wrong password was made: {}", e.getMessage(), e);
+
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body(ExceptionBody.fromMessage(e.getMessage()));
+    }
+
+    @ExceptionHandler(InvalidTokenException.class)
+    public ResponseEntity<ExceptionBody> handleInvalidTokenException(InvalidTokenException e) {
+        log.error("An attempt to perform a request with an invalid token was made: {}", e.getMessage(), e);
+
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
                 .body(ExceptionBody.fromMessage(e.getMessage()));
     }
 
