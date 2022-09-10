@@ -1,8 +1,10 @@
 package com.raphael.cardealership.domain.auth;
 
+import com.raphael.cardealership.domain.shared.DuplicateEmailException;
 import com.raphael.cardealership.domain.shared.EmailNotFoundException;
 import com.raphael.cardealership.domain.shared.IncorrectPasswordException;
 import lombok.AllArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import javax.annotation.ManagedBean;
 
@@ -27,8 +29,13 @@ public class AuthService {
     public UserResponse register(RegisterRequest request) {
         User user = request.toUser();
 
-        user = user.withPassword(passwordEncoder.hashPassword(user.getPassword()));
-        user = repository.save(user);
+        user.setPassword(passwordEncoder.hashPassword(user.getPassword()));
+
+        try {
+            user = repository.save(user);
+        } catch (DataIntegrityViolationException e) {
+            throw new DuplicateEmailException("An user with the provided email is already registered.");
+        }
 
         return createUserResponseWithToken(user);
     }

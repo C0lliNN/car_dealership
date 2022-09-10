@@ -21,11 +21,6 @@ public class RegisterRequest {
     String password;
 
     public User toUser() {
-        return User
-                .builder()
-                .name(name)
-                .email(email)
-                .password(password)
-                .build();
+        return new User(null, name, email, password);
     }
 }

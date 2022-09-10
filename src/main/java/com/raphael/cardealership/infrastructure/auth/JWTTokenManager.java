@@ -18,11 +18,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class JwtTokenManager implements TokenGenerator, TokenExtractor {
+public class JWTTokenManager implements TokenGenerator, TokenExtractor {
     private final String secret;
     private final Long tokenDurationInMilliseconds;
 
-    public JwtTokenManager(@Value("${jwt.secret}") String secret,
+    public JWTTokenManager(@Value("${jwt.secret}") String secret,
                            @Value("${jwt.duration}") Long tokenDurationInMilliseconds) {
         this.secret = secret;
         this.tokenDurationInMilliseconds = tokenDurationInMilliseconds;
@@ -57,10 +57,6 @@ public class JwtTokenManager implements TokenGenerator, TokenExtractor {
         String userName = claims.get("name", String.class);
         String userEmail = claims.get("email", String.class);
 
-        return User.builder()
-                .id(userId)
-                .name(userName)
-                .email(userEmail)
-                .build();
+        return new User(userId, userName, userEmail, null);
     }
 }
