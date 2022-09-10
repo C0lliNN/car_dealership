@@ -1,6 +1,6 @@
 package com.raphael.cardealership.infrastructure.auth.hash;
 
-import com.raphael.cardealership.infrastructure.auth.usecase.PasswordEncoder;
+import com.raphael.cardealership.domain.auth.PasswordEncoder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 

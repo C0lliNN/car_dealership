@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.usecase;
+package com.raphael.cardealership.domain.auth;
 
 public interface PasswordEncoder {
     String hashPassword(String password);

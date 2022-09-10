@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.entity;
+package com.raphael.cardealership.domain.auth;
 
 import lombok.Builder;
 import lombok.Value;

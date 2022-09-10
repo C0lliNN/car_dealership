@@ -1,7 +1,7 @@
 package com.raphael.cardealership.infrastructure.auth.persistence;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.raphael.cardealership.infrastructure.auth.entity.User;
+import com.raphael.cardealership.domain.auth.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.raphael.cardealership.infrastructure.controller.filter;
 
-import com.raphael.cardealership.infrastructure.auth.entity.User;
+import com.raphael.cardealership.domain.auth.User;
 import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;

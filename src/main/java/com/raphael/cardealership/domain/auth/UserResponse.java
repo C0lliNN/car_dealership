@@ -1,7 +1,6 @@
-package com.raphael.cardealership.infrastructure.auth.usecase.response;
+package com.raphael.cardealership.domain.auth;
 
 
-import com.raphael.cardealership.infrastructure.auth.entity.User;
 import lombok.Value;
 import lombok.With;
 

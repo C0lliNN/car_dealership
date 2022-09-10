@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.usecase.request;
+package com.raphael.cardealership.domain.auth;
 
 
 import lombok.Value;

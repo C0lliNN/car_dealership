@@ -1,6 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.usecase;
-
-import com.raphael.cardealership.infrastructure.auth.entity.User;
+package com.raphael.cardealership.domain.auth;
 
 import java.util.Optional;
 

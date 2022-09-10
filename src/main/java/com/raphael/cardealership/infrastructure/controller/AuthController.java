@@ -1,9 +1,9 @@
 package com.raphael.cardealership.infrastructure.controller;
 
-import com.raphael.cardealership.infrastructure.auth.usecase.AuthUseCase;
-import com.raphael.cardealership.infrastructure.auth.usecase.request.LoginRequest;
-import com.raphael.cardealership.infrastructure.auth.usecase.request.RegisterRequest;
-import com.raphael.cardealership.infrastructure.auth.usecase.response.UserResponse;
+import com.raphael.cardealership.domain.auth.AuthService;
+import com.raphael.cardealership.domain.auth.LoginRequest;
+import com.raphael.cardealership.domain.auth.RegisterRequest;
+import com.raphael.cardealership.domain.auth.UserResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +18,7 @@ import javax.validation.Valid;
 @AllArgsConstructor
 @RequestMapping("/auth")
 public class AuthController {
-    private final AuthUseCase useCase;
+    private final AuthService useCase;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
