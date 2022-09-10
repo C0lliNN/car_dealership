@@ -1,6 +1,6 @@
 package com.raphael.cardealership.infrastructure.auth.token;
 
-import com.raphael.cardealership.infrastructure.auth.web.TokenExtractor;
+import com.raphael.cardealership.infrastructure.controller.filter.TokenExtractor;
 import com.raphael.cardealership.infrastructure.auth.entity.User;
 import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
 import com.raphael.cardealership.infrastructure.auth.usecase.TokenGenerator;

@@ -1,7 +1,7 @@
 package com.raphael.cardealership.infrastructure.auth.config;
 
-import com.raphael.cardealership.infrastructure.auth.web.filter.FilterChainExceptionHandler;
-import com.raphael.cardealership.infrastructure.auth.web.filter.JWTAuthorizationFilter;
+import com.raphael.cardealership.infrastructure.controller.filter.FilterChainExceptionHandler;
+import com.raphael.cardealership.infrastructure.controller.filter.JWTAuthorizationFilter;
 import lombok.AllArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

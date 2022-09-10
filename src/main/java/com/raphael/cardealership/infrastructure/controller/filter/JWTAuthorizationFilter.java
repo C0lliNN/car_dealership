@@ -1,8 +1,7 @@
-package com.raphael.cardealership.infrastructure.auth.web.filter;
+package com.raphael.cardealership.infrastructure.controller.filter;
 
 import com.raphael.cardealership.infrastructure.auth.entity.User;
 import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
-import com.raphael.cardealership.infrastructure.auth.web.TokenExtractor;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,11 +29,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String uri = request.getRequestURI();
 
-        return uri.startsWith("/v3/api-docs") ||
-                uri.startsWith("/docs") ||
-                uri.startsWith("/swagger-ui") ||
-                uri.startsWith("/participant") ||
-                uri.startsWith("/auth");
+        return uri.startsWith("/auth");
     }
 
     @Override

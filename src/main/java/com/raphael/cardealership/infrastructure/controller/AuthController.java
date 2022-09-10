@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.web;
+package com.raphael.cardealership.infrastructure.controller;
 
 import com.raphael.cardealership.infrastructure.auth.usecase.AuthUseCase;
 import com.raphael.cardealership.infrastructure.auth.usecase.request.LoginRequest;

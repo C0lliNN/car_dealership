@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.web.filter;
+package com.raphael.cardealership.infrastructure.controller.filter;
 
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Qualifier;
