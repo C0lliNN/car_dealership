@@ -6,7 +6,7 @@ import lombok.With;
 
 @Value
 public class UserResponse {
-    Long id;
+    String id;
     String name;
     String email;
     @With

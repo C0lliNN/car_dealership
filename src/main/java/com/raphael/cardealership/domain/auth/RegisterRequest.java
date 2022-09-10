@@ -20,7 +20,7 @@ public class RegisterRequest {
     @Size(min = 6, max = 20, message = "the field must contain between {min} and {max} chars")
     String password;
 
-    public User toUser() {
-        return new User(null, name, email, password);
+    public User toUser(String id) {
+        return new User(id, name, email, password);
     }
 }

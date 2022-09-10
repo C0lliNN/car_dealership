@@ -25,3 +25,8 @@ VALUES
 INSERT INTO car_dealership.customers
 VALUES
 ('sale-1', 'Hiago', 'hiago@test.com', '22835353535');
+
+-- Password: 123456789
+INSERT INTO car_dealership.users
+VALUES
+('user-id', 'Raphael', 'raphael@test.com', '$2a$10$Iy4ap5imZew65diSSMAgau0r8Yyi25ANgRn7gLE6nW1WaLo0PQCxO');

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import javax.annotation.ManagedBean;
+import java.util.UUID;
 
 @ManagedBean
 @AllArgsConstructor
@@ -27,7 +28,7 @@ public class AuthService {
     }
 
     public UserResponse register(RegisterRequest request) {
-        User user = request.toUser();
+        User user = request.toUser(UUID.randomUUID().toString());
 
         user.setPassword(passwordEncoder.hashPassword(user.getPassword()));
 

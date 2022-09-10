@@ -53,7 +53,7 @@ public class JWTTokenManager implements TokenGenerator, TokenExtractor {
             throw new InvalidTokenException(e.getMessage());
         }
 
-        Long userId = claims.get("id", Long.class);
+        String userId = claims.get("id", String.class);
         String userName = claims.get("name", String.class);
         String userEmail = claims.get("email", String.class);
 
