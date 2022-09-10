@@ -2,7 +2,7 @@ package com.raphael.cardealership.infrastructure.auth.token;
 
 import com.raphael.cardealership.infrastructure.controller.filter.TokenExtractor;
 import com.raphael.cardealership.domain.auth.User;
-import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
+import com.raphael.cardealership.domain.shared.InvalidTokenException;
 import com.raphael.cardealership.domain.auth.TokenGenerator;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

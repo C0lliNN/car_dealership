@@ -1,7 +1,7 @@
 package com.raphael.cardealership.domain.auth;
 
-import com.raphael.cardealership.infrastructure.auth.exception.EmailNotFoundException;
-import com.raphael.cardealership.infrastructure.auth.exception.IncorrectPasswordException;
+import com.raphael.cardealership.domain.shared.EmailNotFoundException;
+import com.raphael.cardealership.domain.shared.IncorrectPasswordException;
 import lombok.AllArgsConstructor;
 
 import javax.annotation.ManagedBean;

@@ -2,10 +2,10 @@ package com.raphael.cardealership.infrastructure.controller;
 
 import com.raphael.cardealership.domain.shared.EntityNotFoundException;
 import com.raphael.cardealership.domain.shared.EntityValidationException;
-import com.raphael.cardealership.infrastructure.auth.exception.DuplicateEmailException;
-import com.raphael.cardealership.infrastructure.auth.exception.EmailNotFoundException;
-import com.raphael.cardealership.infrastructure.auth.exception.IncorrectPasswordException;
-import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
+import com.raphael.cardealership.domain.shared.DuplicateEmailException;
+import com.raphael.cardealership.domain.shared.EmailNotFoundException;
+import com.raphael.cardealership.domain.shared.IncorrectPasswordException;
+import com.raphael.cardealership.domain.shared.InvalidTokenException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

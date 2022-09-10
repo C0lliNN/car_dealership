@@ -1,7 +1,7 @@
 package com.raphael.cardealership.infrastructure.auth.persistence;
 
 import com.raphael.cardealership.domain.auth.User;
-import com.raphael.cardealership.infrastructure.auth.exception.DuplicateEmailException;
+import com.raphael.cardealership.domain.shared.DuplicateEmailException;
 import com.raphael.cardealership.domain.auth.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;

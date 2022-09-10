@@ -1,7 +1,7 @@
 package com.raphael.cardealership.infrastructure.controller.filter;
 
 import com.raphael.cardealership.domain.auth.User;
-import com.raphael.cardealership.infrastructure.auth.exception.InvalidTokenException;
+import com.raphael.cardealership.domain.shared.InvalidTokenException;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

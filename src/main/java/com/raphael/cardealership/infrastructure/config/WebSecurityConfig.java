@@ -1,4 +1,4 @@
-package com.raphael.cardealership.infrastructure.auth.config;
+package com.raphael.cardealership.infrastructure.config;
 
 import com.raphael.cardealership.infrastructure.controller.filter.FilterChainExceptionHandler;
 import com.raphael.cardealership.infrastructure.controller.filter.JWTAuthorizationFilter;
