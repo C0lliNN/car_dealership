@@ -22,8 +22,6 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final JWTAuthorizationFilter authorizationFilter;
     private final FilterChainExceptionHandler filterChainExceptionHandler;
 
-    Drive
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
