@@ -30,14 +30,14 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterBefore(filterChainExceptionHandler, LogoutFilter.class)
                 .addFilterAfter(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/v3/api-docs/**", "/docs/**", "/swagger-ui/**", "/auth/**", "/participant/**").permitAll()
+                .antMatchers("/v3/api-docs/**", "/docs/**", "/swagger-ui/**", "/auth/**").permitAll()
                 .anyRequest().authenticated();
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080", "http://localhost:3000"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080", "http://localhost:3000", "https://c0llinn.github.io"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
