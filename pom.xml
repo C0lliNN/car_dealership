@@ -80,10 +80,10 @@
                 <artifactId>flyway-maven-plugin</artifactId>
                 <version>9.1.2</version>
                 <configuration>
-                    <user>fhjaksjaabuneo</user>
-                    <password>4bf8c6c10df6072b8b5ecdb88ef362b189a9e7f5450432c68d508f884ab16d55</password>
-                    <defaultSchema>d5n8mk5im5h5ld</defaultSchema>
-                    <url>jdbc:postgresql://fhjaksjaabuneo:4bf8c6c10df6072b8b5ecdb88ef362b189a9e7f5450432c68d508f884ab16d55@ec2-3-214-2-141.compute-1.amazonaws.com:5432/d5n8mk5im5h5ld</url>
+                    <user>postgres</user>
+                    <password>postgres</password>
+                    <defaultSchema>car_dealership</defaultSchema>
+                    <url>jdbc:postgresql://localhost:5432/car_dealership</url>
                     <cleanDisabled>false</cleanDisabled>
                 </configuration>
             </plugin>
